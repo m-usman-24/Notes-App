@@ -60,11 +60,11 @@ public class NoteUserService implements UserDetailsService {
 			findNoteUserWhereEnabled(noteUser.getUsername())
 			.isPresent();
 		
-		if (emailTaken && isEnabled) {
+		if ((emailTaken && isEnabled) || (usernameTaken && isEnabled)) {
 			throw new NotesAppException("Email exists, if its you try logging in.");
 		}
 		
-		if (emailTaken && !usernameTaken) {
+		if ((emailTaken && !usernameTaken) || (usernameTaken && !emailTaken)) {
 			throw new NotesAppException("Account exists, enter your username and email to generate a new email " +
 				"verification request");
 		}
