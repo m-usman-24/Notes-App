@@ -1,7 +1,6 @@
 package com.notes.service;
 
 import com.notes.email.EmailSender;
-import com.notes.email.EmailSenderService;
 import com.notes.entity.ConfirmationToken;
 import com.notes.entity.NoteUser;
 import com.notes.entity.Roles;
@@ -69,9 +68,6 @@ public class NoteUserService implements UserDetailsService {
 			throw new NotesAppException("Account exists, enter your username and email to generate a new email " +
 				"verification request");
 		}
-		if (usernameTaken) {
-			throw new NotesAppException("Username taken!");
-		}
 		
 		noteUserRepository.saveAndFlush(noteUser);
 		
@@ -86,7 +82,7 @@ public class NoteUserService implements UserDetailsService {
 		
 		confirmationTokenService.saveConfirmationToken(confirmationToken);
 		
-		String link = "http://www.localhost:8080/signup/confirm?token=" + token;
+		String link = "https://notes-app-by-usman.up.railway.app/signup/confirm?token=" + token;
 		
 		String email = emailSender.buildEmailForEmailVerification(
 			noteUser.getFullName(),
@@ -150,7 +146,7 @@ public class NoteUserService implements UserDetailsService {
 		
 		confirmationTokenService.saveConfirmationToken(confirmationToken);
 		
-		String link = "http://www.localhost:8080/forgot/confirm?token=" + token;
+		String link = "https://notes-app-by-usman.up.railway.app/forgot/confirm?token=" + token;
 		
 		String email = emailSender.buildEmailForEmailVerification(
 			noteUser.getFullName(),
