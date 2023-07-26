@@ -9,7 +9,7 @@ import lombok.ToString;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 @Getter
 @Setter
@@ -19,10 +19,8 @@ import java.time.LocalDateTime;
 @Table(name = "Notes")
 public class Note {
 	
-	public Note(String note, LocalDateTime dateTime) {
-		this.noteText = note;
-		this.dateTime = dateTime;
-	}
+	@Column(name = "time", columnDefinition = "DATETIME")
+	private ZonedDateTime dateTime;
 	
 	@Id
 	@Column(name = "id", columnDefinition = "INT")
@@ -36,8 +34,10 @@ public class Note {
 	@JsonIgnore
 	private NoteUser user;
 	
-	@Column(name = "time", columnDefinition = "DATETIME")
-	private LocalDateTime dateTime;
+	public Note(String note, ZonedDateTime dateTime) {
+		this.noteText = note;
+		this.dateTime = dateTime;
+	}
 	
 	@Column(name = "note", columnDefinition = "TEXT")
 	private String noteText;
