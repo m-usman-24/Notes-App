@@ -61,7 +61,7 @@ public class NoteUserService implements UserDetailsService {
 			.isPresent();
 		
 		if ((emailTaken && isEnabled) || (usernameTaken && isEnabled)) {
-			throw new NotesAppException("Email exists, if its you try logging in.");
+			throw new NotesAppException("Account exists, if its you try logging in.");
 		}
 		
 		if ((emailTaken && !usernameTaken) || (usernameTaken && !emailTaken)) {
