@@ -10,13 +10,17 @@ footer {
 }
 
 blockquote {
-  font-size: 14pt;
   margin-bottom: 0;
 }
 
 blockquote p {
+  font-size: 16pt;
   margin-bottom: -4px;
   cursor: text;
+}
+
+blockquote footer cite {
+  font-size: 12pt;
 }
 
 blockquote a[role="button"] {
