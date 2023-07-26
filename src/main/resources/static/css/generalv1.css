@@ -72,6 +72,12 @@ dialog article {
 
 }
 
+#search:hover, #search:focus,
+#search:not(:hover), #search:not(:active),
+#search::placeholder, #search:not(:focus) {
+    background-color: var(--primary-inverse);
+}
+
 #modal-example article a {
     padding: 0;
     margin: 0;
