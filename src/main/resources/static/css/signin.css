@@ -1,0 +1,10 @@
+
+dialog article {
+    width: 100%;
+}
+
+@media (min-width: 500px) {
+    dialog article {
+        max-width: 500px;
+    }
+}

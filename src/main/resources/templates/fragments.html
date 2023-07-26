@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<div class="below-nav"></div>
+
+<nav class="align disable-selection" data-th-fragment="nav(mapping)"
+     data-th-with="condition=${#strings.equals(mapping,'/notes/compose')}">
+
+<!--  Model Script that model will use-->
+  <ul>
+
+    <li data-th-style="*{condition} ? 'cursor: not-allowed;'">
+
+      <a href="" data-th-disabled="*{condition} ? 'disabled'"
+         data-th-style="*{condition} ? 'pointer-events: none;'"
+         data-th-href="@{/notes/compose}"
+         data-tooltip="Compose"
+         data-placement="right">
+
+        <svg
+                data-th-style="*{condition} ? 'color: var(--secondary); opacity: 50%;'"
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                class="bi bi-plus-lg"
+                viewBox="0 0 16 16"
+        >
+          <path
+                  fill-rule="evenodd"
+                  d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+          />
+        </svg>
+      </a>
+    </li>
+
+  </ul>
+  <ul>
+    <li>
+      <a id="theme-toggle">
+         <span class="product-name">NOTES</span>
+      </a>
+    </li>
+  </ul>
+  <ul>
+
+
+    <li>
+      <a data-target="modal-example"
+         onClick="toggleModal(event)"
+         data-tooltip="Spotlight"
+         data-placement="left">
+        <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="26"
+                height="26"
+                fill="currentColor"
+                class="bi bi-search"
+                viewBox="0 0 16 16"
+        >
+          <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+          />
+        </svg>
+      </a>
+    </li>
+  </ul>
+
+  <!-- Modal -->
+  <dialog id="modal-example">
+    <article>
+      <a    class="close"
+            data-target="modal-example"
+            onClick="toggleModal(event)"
+      >
+      </a>
+
+      <form action="/notes/search" id="search-notes"  >
+        <input type="hidden"
+               autocomplete="randomstring123"
+               data-th-name="${_csrf.parameterName}"
+               data-th-value="${_csrf.token}"/>
+          <input required type="search" id="search" name="s" placeholder="Search"/>
+        <button type="submit" hidden="hidden" aria-busy="false">Search</button>
+      </form>
+    </article>
+  </dialog>
+
+  <!-- Search state changing script -->
+
+  <script>
+      let button = document.querySelector('button[type="submit"]');
+
+      // Add the click event listener
+      button.addEventListener("click", function () {
+          // Set aria-busy to true
+          button.setAttribute("aria-busy", "true");
+
+          // Change the button text
+          button.textContent = "Searching";
+      });
+  </script>
+
+</nav>
+</body>
+</html>

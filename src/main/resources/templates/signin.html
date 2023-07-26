@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../static/css/pico.min.css" data-th-href="@{/css/pico.min.css}"/>
+  <link rel="stylesheet" href="../static/css/signup.css" data-th-href="@{/css/signup.css}"/>
+  <link rel="stylesheet" href="../static/css/signin.css" data-th-href="@{/css/signin.css}"/>
+  <link rel="icon" href="../static/css/favicon.ico" type="image/x-icon"
+        data-th-href="@{/css/favicon.ico}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@100;300;400;500;700;900&display=swap">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="../static/javascript/theme-toggler.js" data-th-src="@{/javascript/theme-toggler.js}"></script>
+
+  <title>Notes</title>
+</head>
+<body>
+<div class="body">
+  <main class="container">
+    <dialog open>
+      <article>
+
+        <div data-th-class="${#strings.equals(param.error, 'bce')} ? alertNegative"
+             data-th-if="${#strings.equals(param.error, 'bce')}"><p>Bad Credentials</p></div>
+
+        <div data-th-class="${#strings.equals(param.error, 'aee')} ? alertNegative"
+             data-th-if="${#strings.equals(param.error, 'aee')}"><p>Your Account is Expired</p></div>
+
+        <div data-th-class="${#strings.equals(param.error, 'le')} ? alertNegative"
+             data-th-if="${#strings.equals(param.error, 'le')}"><p>Your Account is Locked</p></div>
+
+        <div data-th-class="${#strings.equals(param.error, 'de')} ? alertNegative"
+             data-th-if="${#strings.equals(param.error, 'de')}"><p>Your Account is Disabled</p></div>
+
+        <div data-th-class="${#strings.equals(param.error, 'cee')} ? alertNegative"
+             data-th-if="${#strings.equals(param.error, 'cee')}"><p>Your Credentials are Expired</p></div>
+
+        <div data-th-class="${errorMessage != null} ? alertNegative">
+          <p data-th-text="${errorMessage} ?: _"></p>
+        </div>
+
+        <div data-th-class="${confirmation != null} ? alertPositive">
+          <p data-th-text="${confirmation} ?: _"></p>
+        </div>
+
+        <div data-th-class="${param.logout != null} ? alertPositive"
+             data-th-if="${param.logout != null}"><p>You've logged
+          out successfully</p></div>
+
+        <div data-th-class="${referer != null && referer.endsWith('/signup')} ? alertPositive"
+             data-th-if="${referer != null && referer.endsWith('/signup')}">
+          <p>Verify your email, link has been sent</p>
+        </div>
+
+        <div data-th-class="${referer != null && referer.endsWith('/forgot')} ? alertPositive"
+             data-th-if="${referer != null && referer.endsWith('/forgot')}">
+          <p>Instructions to change password are sent to your email</p>
+        </div>
+
+        <div data-th-class="${referer != null && referer.contains('/forgot/confirm?token')} ? alertPositive"
+             data-th-if="${referer != null && referer.contains('/forgot/confirm?token')}">
+          <p>Password updated successfully</p>
+        </div>
+
+        <div class="notes">
+          <a href="" id="theme-toggle">
+            <span class="disable-selection">NOTES</span>
+          </a>
+        </div>
+        <form action="" method="post" data-th-action="@{/login}">
+          <!-- Markup example 2: input is after label -->
+          <label for="username">
+            <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Username"
+                    required
+            />
+          </label>
+
+          <label for="password">
+            <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+            />
+          </label>
+
+
+          <button id="submit" aria-busy="false" type="submit">Login</button>
+          <script src="../static/javascript/submit.js" data-th-src="@{/javascript/submit.js}"></script>
+        </form>
+
+
+        <p>Anything else, try
+          <a href="#" data-th-href="@{/signup}"> Signing up </a>
+           or
+          <a href="#" data-th-href="@{/forgot}">Getting help</a>
+        </p>
+      </article>
+    </dialog>
+  </main>
+</div>
+</body>
+</html>

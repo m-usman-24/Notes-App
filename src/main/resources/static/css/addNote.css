@@ -1,0 +1,26 @@
+.add-note {
+    resize: vertical;
+    min-height: 60vh;
+    margin-bottom: -10px;
+    overflow: hidden;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+div .back-button {
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.textarea-container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.submit-button {
+    padding-top: 28px;
+    padding-bottom: 10px;
+}

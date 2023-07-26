@@ -1,0 +1,78 @@
+* {
+    font-family: "google sans", sans-serif;
+}
+
+.product-name {
+    font-weight: 900;
+    font-size: 26pt;
+}
+
+.below-nav {
+    position: fixed;
+    background-color: var(--background-color);
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 86px;
+    z-index: 1;
+
+}
+
+nav {
+    display: flex;
+    position: sticky;
+    justify-content: space-between;
+    top: 0;
+    z-index: 2;
+    background-color: var(--background-color);
+}
+
+nav a:focus {
+    background-color: transparent;
+}
+
+nav a:hover {
+    cursor: pointer;
+}
+
+.disable-compose {
+    pointer-events: none;
+}
+
+.disable-selection {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+
+/*Modal styling*/
+
+dialog {
+    background-color: rgba(255, 255, 255, 0);
+    margin-top: -90px;
+}
+
+dialog article {
+    height: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: visible;
+}
+
+#search {
+    background-color: var(--primary-inverse);
+    border: none;
+    box-shadow: 0 0 300px var(--secondary-hover);
+    outline: 3px solid rgba(16, 149, 193, 0.56);
+    color: dimgrey;
+
+}
+
+#modal-example article a {
+    padding: 0;
+    margin: 0;
+}

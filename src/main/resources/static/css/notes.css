@@ -1,0 +1,51 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 16px;
+}
+
+footer {
+  margin-bottom: 20px;
+  font-size: 12pt;
+}
+
+blockquote {
+  font-size: 14pt;
+  margin-bottom: 0;
+}
+
+blockquote p {
+  margin-bottom: -4px;
+  cursor: text;
+}
+
+blockquote a[role="button"] {
+  width: 70px;
+  padding: 0;
+  margin-right: 4px;
+  font-size: 12pt;
+}
+
+img {
+  height: 380px;
+  align-self: center;
+}
+
+.not-found {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.svg-shadow {
+  -webkit-filter: drop-shadow( 4px 4px 20px rgba(0, 0, 0, .1));
+  filter: drop-shadow( 4px 4px 10px rgba(0, 0, 0, .1));
+  width: 35%;
+}
+
+.highlight {
+  background-color: var(--primary);
+  color: var(--primary-inverse);
+}

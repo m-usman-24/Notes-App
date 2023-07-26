@@ -1,0 +1,124 @@
+* {
+    font-family: "Google Sans", sans-serif;
+    font-size: 12pt;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+article p {
+    font-size: 12pt;
+}
+.body {
+    display: flex;
+    position: relative;
+    background: url(Asset4.png) no-repeat fixed center;
+    background-size: cover;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+dialog article {
+    overflow: hidden;
+    padding-top: 45px;
+    padding-bottom: 20px;
+    position: relative;
+    box-shadow: 0 0 250px var(--secondary-hover);
+}
+
+input[type] {
+    height: 40px;
+}
+
+button {
+    height: 40px;
+    padding: 0;
+}
+
+dialog {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog .alertNegative,
+.alertPositive {
+    display: flex;
+    margin: -45px -24px 40px -24px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+dialog .alertPositive {
+    background-color: rgba(13, 152, 199, 0.72);
+}
+
+dialog .alertPositive p,
+.alertNegative p {
+    letter-spacing: 0.2pt;
+    padding: 6px 10px;
+    text-align: center;
+    color: white;
+}
+
+dialog article span {
+    margin: 0 20px;
+    font-size: 30pt;
+    letter-spacing: -1pt;
+    justify-self: center;
+    text-decoration: none;
+
+}
+
+dialog article form {
+    margin: 0 20px;
+}
+
+article .notes {
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    margin-top: -20px;
+    margin-bottom: 15px;
+}
+
+article p {
+    text-align: center;
+}
+
+p a:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    dialog article form .grid {
+        max-width: 900px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    dialog article {
+        max-width: 900px;
+    }
+}
+
+@media (min-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit,minmax(0%,1fr));
+    }
+}
+
+.disable-selection {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+#theme-toggle {
+    background-color: transparent;
+    text-decoration: none;
+}

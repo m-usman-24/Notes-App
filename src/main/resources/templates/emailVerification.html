@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Email Verification</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+
+      .verify-button {
+          background-color: #404040;
+          color: #ffffff;
+          text-decoration: none;
+          padding: 10px 12px; /* smaller button size */
+          border-radius: 5px;
+          font-size: 16px;
+          transition: background-color 0.3s ease;
+      }
+
+      .verify-button:hover {
+          background-color: #606060;
+      }
+
+      .verify-button:active {
+          background-color: #101010;
+      }
+
+      .main_button {
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+      }
+  </style>
+</head>
+<body>
+<table width="600" cellpadding="0" cellspacing="0" style="margin:0 auto; background-color:#ffffff; padding:20px;
+border:1px solid #cccccc; border-radius: 6px; font-family: 'Google Sans', sans-serif;">
+  <tr>
+    <td>
+      <h1 style="text-align:center; color:#333333; font-weight: 700; letter-spacing: -0.75pt;">
+        NOTES</h1>
+
+      <p style="font-size:16px; color:#333333;"
+         data-th-text="|Hi *{fullName},|">Hi Muhammad,</p>
+      <p style="font-size:16px; color:#333333;">Thank you for registering. Please click this button below and verify your email to activate your account.</p>
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="text-align:center; padding:10px;">
+            <div class="main_button">
+              <a href="#" style="color: white" role="button" aria-required="true" data-th-href="@{*{link}}" class="verify-button">Verify
+                Email</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <p style="font-size:16px; color:#333333; text-align: center">Verification token will expire in 15 minutes.</p>
+      <p style="font-size:12px; color:#333333; text-align:center;">Copyright &#9400; Notes 2023, all rights reserved<br> Muhammad Usman
+      </p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

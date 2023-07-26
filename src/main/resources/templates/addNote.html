@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet"  href="../static/css/pico.min.css" data-th-href="@{/css/pico.min.css}"/>
+  <link rel="stylesheet" href="../static/css/general.css" data-th-href="@{/css/general.css}">
+  <link rel="stylesheet" href="../static/css/addNote.css" data-th-href="@{/css/addNote.css}">
+  <link rel="icon" href="../static/css/favicon.ico" type="image/x-icon"
+        data-th-href="@{/css/favicon.ico}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@100;300;400;500;700;900&display=swap">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="/javascript/modal.js" data-th-src="@{/javascript/modal.js}"></script>
+  <script>
+      function autoResize() {
+          const textarea = document.getElementById("myTextarea");
+          textarea.style.height = 'auto'; // reset the height
+          textarea.style.height = textarea.scrollHeight + "px";
+      }
+
+      window.onload = function() {
+          autoResize();
+      };
+  </script>
+  <script src="../static/javascript/theme-toggler.js" data-th-src="@{/javascript/theme-toggler.js}"></script>
+  <title>Notes</title>
+</head>
+
+<body>
+
+  <div class="below-nav"></div>
+
+    <main class="container">
+
+      <data-th-block data-th-replace="~{fragments :: nav(${mapping})}"></data-th-block>
+
+      <article class="textarea-container">
+
+        <div>
+          <a class="back-button"
+             data-tooltip="Home" data-placement="right"
+             href="" data-th-href="@{/notes}">
+            <svg
+                    fill="currentColor"
+                    width="22px"
+                    height="22px"
+                    viewBox="0 0 1024 1024"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                      d="M222.927 580.115l301.354 328.512c24.354 28.708 20.825 71.724-7.883 96.078s-71.724 20.825-96.078-7.883L19.576 559.963a67.846 67.846 0 01-13.784-20.022 68.03 68.03 0 01-5.977-29.488l.001-.063a68.343 68.343 0 017.265-29.134 68.28 68.28 0 011.384-2.6 67.59 67.59 0 0110.102-13.687L429.966 21.113c25.592-27.611 68.721-29.247 96.331-3.656s29.247 68.721 3.656 96.331L224.088 443.784h730.46c37.647 0 68.166 30.519 68.166 68.166s-30.519 68.166-68.166 68.166H222.927z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <form id="add" action="" data-th-action="@{/notes}" method="post"
+              data-th-object="${note}">
+
+          <input type="hidden" data-th-field="*{id}">
+
+          <textarea
+                  required
+                  data-th-field="*{noteText}"
+                  class="add-note"
+                  placeholder="Enter your notes here..."
+                  id="myTextarea"
+                  oninput= autoResize()
+          ></textarea>
+          <div class="submit-button">
+            <button data-tooltip="Whitespaces are not allowed, you'll be redirected back!"
+                    data-placement="bottom"
+                    class="save" id="save" type="submit"
+                    data-th-text="(${note.noteText} != null) ? 'Update' : _">
+              Save
+            </button>
+          </div>
+        </form>
+      </article>
+
+    </main>
+  <script src="../static/javascript/spotlight.js" data-th-src="@{/javascript/spotlight.js}"></script>
+</body>
+</html>
