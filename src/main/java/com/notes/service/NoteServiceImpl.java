@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +17,7 @@ public class NoteServiceImpl implements NoteService {
 	
 	private final NoteRepository noteRepository;
 	private final NoteUserService noteUserService;
+	private final TimeZoneService timeZoneService;
 	
 	
 	@Transactional
@@ -31,7 +31,7 @@ public class NoteServiceImpl implements NoteService {
 		
 		note.setUser(noteUser);
 		note.setNoteText(note.getNoteText().trim());
-		note.setDateTime(LocalDateTime.now());
+		note.setDateTime(timeZoneService.clientDateTime());
 		
 		noteRepository.save(note);
 	}
