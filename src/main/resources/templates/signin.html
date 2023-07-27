@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -27,7 +27,8 @@
              data-th-if="${#strings.equals(param.error, 'aee')}"><p>Your Account is Expired</p></div>
 
         <div data-th-class="${#strings.equals(param.error, 'le')} ? alertNegative"
-             data-th-if="${#strings.equals(param.error, 'le')}"><p>Your Account is Locked</p></div>
+             data-th-if="${#strings.equals(param.error, 'le')}"><p>Your Account is disable, verify your email to
+          enable it</p></div>
 
         <div data-th-class="${#strings.equals(param.error, 'de')} ? alertNegative"
              data-th-if="${#strings.equals(param.error, 'de')}"><p>Your Account is Disabled</p></div>
