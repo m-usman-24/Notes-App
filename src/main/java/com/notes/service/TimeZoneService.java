@@ -8,7 +8,6 @@ import java.time.ZonedDateTime;
 @Component
 public class TimeZoneService {
 	public ZonedDateTime clientDateTime() {
-		ZoneId zoneId = ZoneId.of("Asia/Karachi");
-		return ZonedDateTime.now(zoneId);
+		return ZonedDateTime.now(ZoneId.of("UTC+5"));
 	}
 }
