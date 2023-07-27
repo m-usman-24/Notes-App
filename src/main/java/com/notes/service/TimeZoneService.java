@@ -9,6 +9,6 @@ import java.time.ZonedDateTime;
 public class TimeZoneService {
 	public ZonedDateTime clientDateTime() {
 		ZoneId zoneId = ZoneId.of("Asia/Karachi");
-		return ZonedDateTime.now().withZoneSameInstant(zoneId);
+		return ZonedDateTime.now(zoneId);
 	}
 }
