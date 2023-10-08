@@ -82,7 +82,7 @@ public class NoteUserService implements UserDetailsService {
 		
 		confirmationTokenService.saveConfirmationToken(confirmationToken);
 		
-		String link = "https://notes-app-by-usman.up.railway.app/signup/confirm?token=" + token;
+		String link = "http://localhost:8080/signup/confirm?token=" + token;
 		
 		String email = emailSender.buildEmailForEmailVerification(
 			noteUser.getFullName(),
@@ -146,7 +146,7 @@ public class NoteUserService implements UserDetailsService {
 		
 		confirmationTokenService.saveConfirmationToken(confirmationToken);
 		
-		String link = "https://notes-app-by-usman.up.railway.app/forgot/confirm?token=" + token;
+		String link = "http://localhost:8080/forgot/confirm?token=" + token;
 		
 		String email = emailSender.buildEmailForEmailVerification(
 			noteUser.getFullName(),
